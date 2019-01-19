@@ -23,7 +23,6 @@ public class MazeTest {
     private static int[] ydirection = {0, 1, 0, -1};
 
     public int findSteps(int[][] maze, int dx, int dy) {
-        int result = -1;
         int hight = maze.length;
         int width = maze[0].length;
         int[][] mazeT = new int[hight][width];
@@ -47,7 +46,7 @@ public class MazeTest {
         }
 
 
-        return result;
+        return -1;
     }
 
     public static void main(String[] args) {

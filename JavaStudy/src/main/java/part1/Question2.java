@@ -27,7 +27,6 @@ public class Question2 {
                 String p1 = o1.toLowerCase().substring(o1Id, o1.length()).replace(" ", "").trim();
                 int o2Id = o2.indexOf(" ");
                 String p2 = o2.toLowerCase().substring(o2Id, o2.length());
-
                 if (!p1.equals(p2)) {
                    return p1.compareTo(p2);
                 } else {

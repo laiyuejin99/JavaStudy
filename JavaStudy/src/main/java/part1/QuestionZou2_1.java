@@ -4,11 +4,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class QuestionZou21 {
-    class Coordinate {
+public class QuestionZou2_1 {
+    class Point {
         int x, y;
 
-        Coordinate(int x, int y) {
+        Point(int x, int y) {
             this.x = x;
             this.y = y;
         }
@@ -22,25 +22,25 @@ public class QuestionZou21 {
         int[] directionX = {1, 0, -1, 0};
         int[] directionY = {0, 1, 0, -1};
 
-        Queue<Coordinate> queue = new LinkedList<>();
-        queue.offer(new Coordinate(0, 0));
+        Queue<Point> queue = new LinkedList<>();
+        queue.offer(new Point(0, 0));
         int steps = 0;
 
         while (!queue.isEmpty()) {
             int level = queue.size();
             for (int k = 0; k < level; k++) {
-                Coordinate coor = queue.poll();
-                if (lot.get(coor.x).get(coor.y) == 9) {
+                Point currentP = queue.poll();
+                if (lot.get(currentP.x).get(currentP.y) == 9) {
                     return steps;
                 }
                 for (int i = 0; i < 4; i++) {
-                    int x = coor.x + directionX[i];
-                    int y = coor.y + directionY[i];
-                    Coordinate c = new Coordinate(x, y);
+                    int x = currentP.x + directionX[i];
+                    int y = currentP.y + directionY[i];
+                    Point point = new Point(x, y);
                     if (isValid(lot, x, y)) {
-                        queue.offer(c);
-                        if (lot.get(coor.x).get(coor.y) == 1) {
-                            lot.get(coor.x).set(coor.y, 0);
+                        queue.offer(point);
+                        if (lot.get(currentP.x).get(currentP.y) == 1) {
+                            lot.get(currentP.x).set(currentP.y, 0);
                         }
                     }
                 }
